@@ -1,0 +1,812 @@
+Plecs {
+  Name          "TestPN"
+  Version       "4.7"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  TimeSpan      "runT"
+  Timeout       ""
+  Solver        "auto"
+  MaxStep       "1e-5"
+  InitStep      "-1"
+  FixedStep     "1e-3"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  InitializationCommands "injA = 1.0; injF = 50; runT = 0.04;"
+  InitialState  "1"
+  SystemState   ""
+  TaskingMode   "1"
+  TaskConfigurations ""
+  CodeGenParameterInlining "2"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "Generic"
+  CodeGenTargetSettings ""
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings ""
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  ScriptsDialogGeometry ""
+  ScriptsDialogSplitterPos "0"
+  Terminal {
+    Type          Output
+    Index         "1"
+  }
+  Schematic {
+    Location      [453, 220; 1869, 924]
+    ZoomFactor    1.49864
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave3"
+      Show          on
+      Position      [60, 145]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "injA"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "injF"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "210"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave4"
+      Show          on
+      Position      [60, 100]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "injA"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "injF"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "-30"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave2"
+      Show          on
+      Position      [60, 55]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "injA"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "injF"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "90"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux6"
+      Show          off
+      Position      [115, 65]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Width"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          Gain
+      Name          "Gain6"
+      Show          on
+      Position      [365, 120]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "K"
+        Value         "injA/2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Multiplication"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux7"
+      Show          off
+      Position      [325, 120]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Width"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          Output
+      Name          "OutPN"
+      Show          on
+      Position      [660, 60]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Index"
+        Value         "1"
+        Show          on
+      }
+      Parameter {
+        Variable      "Width"
+        Value         "-1"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave7"
+      Show          on
+      Position      [270, 200]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "2*50-injF"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "210"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave8"
+      Show          on
+      Position      [270, 155]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "2*50-injF"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "-30"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave9"
+      Show          on
+      Position      [270, 110]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "2*50-injF"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "90"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto10"
+      Show          off
+      Position      [195, 65]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "injin"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From17"
+      Show          off
+      Position      [285, 65]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "injin"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From2"
+      Show          off
+      Position      [545, 65]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "iP"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Sum
+      Name          "Sum2"
+      Show          off
+      Position      [465, 65]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|++"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto12"
+      Show          off
+      Position      [500, 65]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "iP"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux1"
+      Show          off
+      Position      [615, 60]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Width"
+        Value         "4"
+        Show          off
+      }
+    }
+    Component {
+      Type          From
+      Name          "From19"
+      Show          off
+      Position      [585, 30]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "injinPN"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          TransferFunction
+      Name          "Transfer Fcn5"
+      Show          on
+      Position      [395, 65]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-30, -15; 30, 15]
+      Parameter {
+        Variable      "Numerator"
+        Value         "[1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "Denominator"
+        Value         "[0.0001 1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          TransferFunction
+      Name          "Transfer Fcn6"
+      Show          on
+      Position      [425, 120]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-30, -15; 30, 15]
+      Parameter {
+        Variable      "Numerator"
+        Value         "[1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "Denominator"
+        Value         "[0.0001 1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto11"
+      Show          off
+      Position      [195, 35]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "injinPN"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalDemux
+      Name          "Demux"
+      Show          off
+      Position      [580, 65]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Parameter {
+        Variable      "Width"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope"
+      Show          on
+      Position      [685, 145]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      CommentOut    DisabledOpenCircuit
+      Location      [640, 280; 990, 507]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAV4AAADIAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"QAAAGQAAAAGAAAAZAAAAAcAAABkAAAABAAAAGQAAAAFAAAAZAAAAAgAAABkAAAACQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAAfgAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABmAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAYAAAAAQAAAAAAAAPoAAAAABg="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave4"
+      SrcTerminal   1
+      Points        [95, 100; 95, 65]
+      DstComponent  "Mux6"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave3"
+      SrcTerminal   1
+      Points        [100, 145]
+      DstComponent  "Mux6"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux7"
+      SrcTerminal   1
+      DstComponent  "Gain6"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave8"
+      SrcTerminal   1
+      Points        [305, 155; 305, 120]
+      DstComponent  "Mux7"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave7"
+      SrcTerminal   1
+      Points        [310, 200]
+      DstComponent  "Mux7"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sum2"
+      SrcTerminal   1
+      DstComponent  "Goto12"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Gain6"
+      SrcTerminal   2
+      DstComponent  "Transfer Fcn6"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Transfer Fcn6"
+      SrcTerminal   2
+      Points        [465, 120]
+      DstComponent  "Sum2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From17"
+      SrcTerminal   1
+      DstComponent  "Transfer Fcn5"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Transfer Fcn5"
+      SrcTerminal   2
+      DstComponent  "Sum2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave2"
+      SrcTerminal   1
+      Points        [90, 55]
+      Branch {
+        DstComponent  "Mux6"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [90, 35]
+        DstComponent  "Goto11"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux1"
+      SrcTerminal   1
+      DstComponent  "OutPN"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave9"
+      SrcTerminal   1
+      DstComponent  "Mux7"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux6"
+      SrcTerminal   1
+      DstComponent  "Goto10"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From19"
+      SrcTerminal   1
+      Points        [600, 30]
+      DstComponent  "Mux1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   2
+      DstComponent  "Mux1"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   3
+      DstComponent  "Mux1"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   4
+      DstComponent  "Mux1"
+      DstTerminal   5
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From2"
+      SrcTerminal   1
+      Points        [560, 65]
+      Branch {
+        DstComponent  "Demux"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [560, 145]
+        DstComponent  "Scope"
+        DstTerminal   1
+      }
+    }
+    RectangleAnnotation {
+      Position     [125, 95]
+      Width        200
+      Height       160
+      CornerRadius 3
+      Thickness    2
+      PenColor     10642217
+      PenAlpha     1
+      BrushColor   10642217
+      BrushAlpha   0
+    } 
+    Annotation {
+      Name          base64 "PGh0bWw+PGJvZHk+CjxwPuW6j+azqOWFpTwvcD48L2JvZHk+PC"
+"9odG1sPg=="
+      Position      [45, 25]
+    } 
+    RectangleAnnotation {
+      Position     [610, 55]
+      Width        190
+      Height       80
+      CornerRadius 3
+      Thickness    2
+      PenColor     10642217
+      PenAlpha     1
+      BrushColor   10642217
+      BrushAlpha   0
+    } 
+    RectangleAnnotation {
+      Position     [370, 125]
+      Width        280
+      Height       220
+      CornerRadius 3
+      Thickness    2
+      PenColor     10642217
+      PenAlpha     1
+      BrushColor   10642217
+      BrushAlpha   0
+    } 
+    Annotation {
+      Name          base64 "PGh0bWw+PGJvZHk+CjxwPuW+hea1i+i/h+eoizwvcD48L2JvZH"
+"k+PC9odG1sPg=="
+      Position      [255, 25]
+    } 
+  }
+}
+DemoSignature "K/Ky5iKWogCNkVhGk+iKq7H9pb+IdGVyqFbQ2nyMF70="
