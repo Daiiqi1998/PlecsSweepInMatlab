@@ -1,3 +1,9 @@
+**简要说明**<br>
+<br>
+如果你有一个plecs standalone的模型，这个工具箱可以允许你在matlab里对模型进行扫频。<br>
+<br>
+所需支持：请先按照[plecs官网](https://www.plexim.com/cn/node/2253) 的指示，配置matlab与plecs之间的通信设定。<br>
+<br>
 **仓库内容说明**<br>
 <br>
 _Sim_TF1phase_sweep_plecs.m_ 与 _Test1p.plecs_ 是最开始做的，一个是单频点谐波扫频程序，一个是它配套的 plecs 模型。<br>
