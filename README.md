@@ -1,3 +1,5 @@
+*该程序已过时，请使用另一个仓库 SimulinkSweepInMatlab 里的代码，它可以兼容 Simulink 和 Plecs！*
+
 **简要说明**<br>
 <br>
 如果你有一个plecs standalone的模型，这个工具箱可以允许你在matlab里对模型进行扫频。<br>
